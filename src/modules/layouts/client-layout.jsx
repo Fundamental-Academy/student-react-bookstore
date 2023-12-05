@@ -1,30 +1,39 @@
-import { useDisclosure } from "@mantine/hooks";
-import { AppShell, Burger } from "@mantine/core";
+import { AppShell, Box, Container, Text } from "@mantine/core";
 import { Outlet } from "react-router-dom";
+import { Header } from "./header";
+import { Footer } from "./footer";
 
 export function ClientLayout() {
-  const [opened, { toggle }] = useDisclosure();
-
   return (
-    <AppShell
-      header={{ height: 60 }}
-      navbar={{
-        width: 300,
-        breakpoint: "sm",
-        collapsed: { mobile: !opened },
-      }}
-      padding="md"
-    >
-      <AppShell.Header>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <div>Logo</div>
-      </AppShell.Header>
+    <AppShell header={{ height: 60 }} padding="md">
+      <Header />
 
-      <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+      <AppShell.Main style={{ padding: 0 }}>
+        <Box
+          style={{
+            alignItems: "center",
+            backgroundImage:
+              "linear-gradient(to bottom right, #0090CD, #3CC5FE)",
+            display: "flex",
+            height: "200px",
+            justifyContent: "center",
+            marginTop: 60,
+            position: "relative",
+            width: "100%",
+          }}
+          component="div"
+        >
+          <Text size={28} fw={700} color="white">
+            Fundamental Bookstore
+          </Text>
+        </Box>
 
-      <AppShell.Main>
-        <Outlet/>
+        <Container size="lg">
+          <Outlet />
+        </Container>
       </AppShell.Main>
+
+      <Footer />
     </AppShell>
   );
 }
