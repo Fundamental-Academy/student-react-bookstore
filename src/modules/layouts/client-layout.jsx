@@ -23,7 +23,7 @@ export function ClientLayout() {
           }}
           component="div"
         >
-          <Text size={28} fw={700} color="white">
+          <Text size={28} fw={700} c="white">
             Fundamental Bookstore
           </Text>
         </Box>
