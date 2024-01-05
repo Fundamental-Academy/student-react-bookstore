@@ -10,6 +10,7 @@ import { HomePage } from "./pages/home";
 import PageBookList from "./pages/book/list";
 import PageBookCreate from "./pages/book/create";
 import PageBookEdit from "./pages/book/edit";
+import PageBookDetail from "./pages/book/detail";
 
 export const routes = createBrowserRouter([
   {
@@ -33,8 +34,12 @@ export const routes = createBrowserRouter([
             element: <PageBookCreate />,
           },
           {
-            path: "edit",
+            path: ":id/edit",
             element: <PageBookEdit />,
+          },
+          {
+            path: ":id/detail",
+            element: <PageBookDetail />,
           },
         ],
       },

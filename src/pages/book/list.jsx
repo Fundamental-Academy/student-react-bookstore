@@ -5,6 +5,7 @@ import { IconPlus, IconPencil, IconEye, IconTrash } from "@tabler/icons-react";
 export default function PageBookList() {
   const BOOK_DATA = [
     {
+      id: 1,
       title: "Sang Alkemis",
       author: "Paulo",
       summary:
@@ -14,6 +15,7 @@ export default function PageBookList() {
       genre: "Philosophy",
     },
     {
+      id: 2,
       title: "Sang Penguasa",
       author: "The Light",
       summary:
@@ -23,6 +25,7 @@ export default function PageBookList() {
       genre: "Self Development",
     },
     {
+      id: 3,
       title: "Seni Merayu Tuhan",
       author: "Yogs The Kull",
       summary:
@@ -77,11 +80,21 @@ export default function PageBookList() {
               </Table.Td>
               <Table.Td style={{ width: 150 }}>
                 <Flex gap="sm">
-                  <ActionIcon component={Link} variant="filled" color="green">
+                  <ActionIcon
+                    component={Link}
+                    variant="filled"
+                    color="green"
+                    to={`/book/${book.id}/detail`}
+                  >
                     <IconEye size={20} />
                   </ActionIcon>
 
-                  <ActionIcon component={Link} variant="filled" color="blue">
+                  <ActionIcon
+                    component={Link}
+                    variant="filled"
+                    color="blue"
+                    to={`/book/${book.id}/edit`}
+                  >
                     <IconPencil size={20} />
                   </ActionIcon>
 

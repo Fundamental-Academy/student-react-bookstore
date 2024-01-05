@@ -1,18 +1,29 @@
+import { useState } from "react";
 import { Link, Form } from "react-router-dom";
 import {
   Button,
   Flex,
   Group,
   NumberInput,
-  Radio,
   Select,
   TextInput,
   Textarea,
   Title,
+  Image,
+  FileInput,
 } from "@mantine/core";
 import { IconArrowBack } from "@tabler/icons-react";
 
-export default function PageBookEdit() {
+export default function PageBookCreate() {
+  const [bookImage, setBookImage] = useState(
+    "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-9.png"
+  );
+
+  function previewBookImage(file) {
+    const imageUrl = URL.createObjectURL(file);
+    setBookImage(imageUrl);
+  }
+
   return (
     <>
       <Flex
@@ -22,7 +33,7 @@ export default function PageBookEdit() {
         mb="md"
         mt={30}
       >
-        <Title order={3} color="blue.5">
+        <Title order={2} c="blue.5">
           Edit Book
         </Title>
 
@@ -30,87 +41,111 @@ export default function PageBookEdit() {
           component={Link}
           to="/book"
           variant="outline"
-          leftIcon={<IconArrowBack />}
+          leftSection={<IconArrowBack />}
         >
           Back
         </Button>
       </Flex>
 
-      <Form
-        method="post"
-        style={{ display: "flex", flexDirection: "column", gap: "16px" }}
-      >
-        <TextInput
-          withAsterisk
-          size="md"
-          label="Name"
-          placeholder="Input shoe name"
-          name="name"
-          required
+      <Flex direction={{ base: "column", sm: "row" }} gap={30}>
+        <Image
+          radius="md"
+          miw={{ base: "100%", sm: 500 }}
+          mah={{ base: 300, sm: 600 }}
+          src={bookImage}
+          onLoad={() => URL.revokeObjectURL(bookImage)}
+          fallbackSrc="https://placehold.co/600x600?text=Image Preview"
         />
 
-        <TextInput
-          withAsterisk
-          size="md"
-          label="Brand"
-          placeholder="Input shoe brand"
-          name="merk"
-          required
-        />
-
-        <Select
-          label="Category"
-          placeholder="Please choose one"
-          withAsterisk
-          size="md"
-          name="categoryId"
-          required
-        />
-
-        <NumberInput
-          withAsterisk
-          size="md"
-          label="Quantity"
-          placeholder="Input shoe qty"
-          name="qty"
-          required
-        />
-
-        <NumberInput
-          withAsterisk
-          size="md"
-          label="Price"
-          placeholder="Input shoe price"
-          name="price"
-          required
-        />
-
-        <Textarea
-          withAsterisk
-          size="md"
-          placeholder="Input shoe desc"
-          label="Description"
-          name="desc"
-          required
-        />
-
-        <Radio.Group
-          label="Shoe Availability"
-          withAsterisk
-          size="md"
-          name="available"
-          required
+        <Form
+          method="post"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            width: "100%",
+          }}
         >
-          <Group mt="xs">
-            <Radio value="true" label="Yes" />
-            <Radio value="false" label="No" />
-          </Group>
-        </Radio.Group>
+          <FileInput
+            withAsterisk
+            size="md"
+            label="Book Image"
+            placeholder="Select book image"
+            name="image"
+            value={bookImage}
+            onChange={(file) => previewBookImage(file)}
+            required
+          />
 
-        <Group position="left" mt="md">
-          <Button type="submit">Submit</Button>
-        </Group>
-      </Form>
+          <TextInput
+            withAsterisk
+            size="md"
+            label="Title"
+            placeholder="Input book title"
+            name="title"
+            required
+            defaultValue={"Sang Alkemis"}
+          />
+
+          <TextInput
+            withAsterisk
+            size="md"
+            label="Author"
+            placeholder="Input book author"
+            name="author"
+            required
+            defaultValue={"Paulo"}
+          />
+
+          <Textarea
+            withAsterisk
+            size="md"
+            placeholder="Input book summary"
+            label="Summary"
+            name="summary"
+            rows={4}
+            required
+            defaultValue={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, soluta!"
+            }
+          />
+
+          <NumberInput
+            withAsterisk
+            size="md"
+            label="Pages"
+            placeholder="Input book total pages"
+            name="pages"
+            required
+            defaultValue={100}
+          />
+
+          <NumberInput
+            withAsterisk
+            size="md"
+            label="Price"
+            placeholder="Input book price"
+            name="price"
+            required
+            defaultValue={500000}
+          />
+
+          <Select
+            label="Genre"
+            placeholder="Please choose one"
+            withAsterisk
+            size="md"
+            name="genreId"
+            required
+          />
+
+          <Group position="left" mt="md">
+            <Button fullWidth type="submit" size="md">
+              Submit
+            </Button>
+          </Group>
+        </Form>
+      </Flex>
     </>
   );
 }
