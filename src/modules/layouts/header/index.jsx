@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import { AppShell, Container, Group, Burger, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import classes from "./style.module.css";
-import { NavLink } from "react-router-dom";
 
 const links = [
   { link: "/", label: "Home" },
@@ -14,7 +13,6 @@ const links = [
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
 
   return (
     <AppShell.Header className={classes.header}>
@@ -31,13 +29,11 @@ export function Header() {
         <Group gap={5} visibleFrom="xs">
           {links.map((item, i) => (
             <NavLink
-              className={classes.link}
+              className={({ isActive }) => {
+                return isActive ? classes.active : classes.link;
+              }}
               key={i}
               to={item.link}
-              data-active={active === item.link || undefined}
-              onClick={() => {
-                setActive(item.link);
-              }}
             >
               {item.label}
             </NavLink>
