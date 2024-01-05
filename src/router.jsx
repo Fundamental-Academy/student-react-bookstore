@@ -1,7 +1,8 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 // Layout
 import { ClientLayout } from "./modules/layouts/client-layout";
+import { AdminLayout } from "./modules/layouts/admin-layout";
 
 // Home Page
 import { HomePage } from "./pages/home";
@@ -21,27 +22,27 @@ export const routes = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
       {
-        path: "/book",
-        element: <Outlet />,
-        children: [
-          {
-            index: true,
-            element: <PageBookList />,
-          },
-          {
-            path: "create",
-            element: <PageBookCreate />,
-          },
-          {
-            path: ":id/edit",
-            element: <PageBookEdit />,
-          },
-          {
-            path: ":id/detail",
-            element: <PageBookDetail />,
-          },
-        ],
+        index: true,
+        element: <PageBookList />,
+      },
+      {
+        path: "create",
+        element: <PageBookCreate />,
+      },
+      {
+        path: ":id/edit",
+        element: <PageBookEdit />,
+      },
+      {
+        path: ":id/detail",
+        element: <PageBookDetail />,
       },
     ],
   },

@@ -58,7 +58,7 @@ export default function PageBookDetail() {
           <Group position="left" mt="sm">
             <Button
               component={Link}
-              to={`/book/1/edit`}
+              to={`/admin/1/edit`}
               color="gray"
               variant="outline"
             >

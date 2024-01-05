@@ -49,7 +49,7 @@ export default function PageBookList() {
           Book List
         </Title>
 
-        <Button component={Link} to="/book/create" leftSection={<IconPlus />}>
+        <Button component={Link} to="/admin/create" leftSection={<IconPlus />}>
           Add
         </Button>
       </Flex>
@@ -84,7 +84,7 @@ export default function PageBookList() {
                     component={Link}
                     variant="filled"
                     color="green"
-                    to={`/book/${book.id}/detail`}
+                    to={`/admin/${book.id}/detail`}
                   >
                     <IconEye size={20} />
                   </ActionIcon>
@@ -93,7 +93,7 @@ export default function PageBookList() {
                     component={Link}
                     variant="filled"
                     color="blue"
-                    to={`/book/${book.id}/edit`}
+                    to={`/admin/${book.id}/edit`}
                   >
                     <IconPencil size={20} />
                   </ActionIcon>
