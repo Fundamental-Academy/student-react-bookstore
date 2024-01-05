@@ -1,32 +1,20 @@
 import { useState } from "react";
+
 import { AppShell, Container, Group, Burger, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import classes from "./style.module.css";
+import { NavLink } from "react-router-dom";
 
 const links = [
   { link: "/", label: "Home" },
   { link: "/about", label: "About" },
+  { link: "/admin", label: "Dashboard" },
 ];
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
-
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
-    >
-      {link.label}
-    </a>
-  ));
 
   return (
     <AppShell.Header className={classes.header}>
@@ -41,7 +29,19 @@ export function Header() {
         </Text>
 
         <Group gap={5} visibleFrom="xs">
-          {items}
+          {links.map((item, i) => (
+            <NavLink
+              className={classes.link}
+              key={i}
+              to={item.link}
+              data-active={active === item.link || undefined}
+              onClick={() => {
+                setActive(item.link);
+              }}
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </Group>
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
