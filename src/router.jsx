@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 
 // Layouts
 import { ClientLayout } from "./modules/layouts/client-layout";
@@ -18,6 +18,11 @@ import PageAdminBookList from "./pages/admin/book/list";
 import PageAdminBookCreate from "./pages/admin/book/create";
 import PageAdminBookEdit from "./pages/admin/book/edit";
 import PageAdminBookDetail from "./pages/admin/book/detail";
+
+// Admin Category Pages
+import PageAdminCategoryList from "./pages/admin/category/list";
+import PageAdminCategoryCreate from "./pages/admin/category/create";
+import PageAdminCategoryEdit from "./pages/admin/category/edit";
 
 // Not Found Page
 import { PageNotFound } from "./pages/not-found";
@@ -56,20 +61,44 @@ export const routes = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
-        index: true,
-        element: <PageAdminBookList />,
+        path: "book",
+        element: <Outlet />,
+        children: [
+          {
+            index: true,
+            element: <PageAdminBookList />,
+          },
+          {
+            path: "create",
+            element: <PageAdminBookCreate />,
+          },
+          {
+            path: ":id/edit",
+            element: <PageAdminBookEdit />,
+          },
+          {
+            path: ":id/detail",
+            element: <PageAdminBookDetail />,
+          },
+        ],
       },
       {
-        path: "create",
-        element: <PageAdminBookCreate />,
-      },
-      {
-        path: ":id/edit",
-        element: <PageAdminBookEdit />,
-      },
-      {
-        path: ":id/detail",
-        element: <PageAdminBookDetail />,
+        path: "category",
+        element: <Outlet />,
+        children: [
+          {
+            index: true,
+            element: <PageAdminCategoryList />,
+          },
+          {
+            path: "create",
+            element: <PageAdminCategoryCreate />,
+          },
+          {
+            path: ":id/edit",
+            element: <PageAdminCategoryEdit />,
+          },
+        ],
       },
     ],
   },

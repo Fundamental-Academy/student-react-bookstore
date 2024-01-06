@@ -37,7 +37,7 @@ export default function PageAdminBookCreate() {
 
         <Button
           component={Link}
-          to="/admin"
+          to="/admin/book"
           variant="outline"
           leftSection={<IconArrowBack />}
         >
