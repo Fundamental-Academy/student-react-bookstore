@@ -48,6 +48,12 @@ export function PageRegister() {
           </Button>
         </Form>
       </Paper>
+
+      <Text c="dimmed" size="md" ta="center" mt={30}>
+        <Anchor component={Link} to="/">
+          Back to Home
+        </Anchor>
+      </Text>
     </>
   );
 }

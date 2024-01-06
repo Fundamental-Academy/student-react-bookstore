@@ -1,6 +1,12 @@
-import { NavLink } from "react-router-dom";
-
-import { AppShell, Container, Group, Burger, Text } from "@mantine/core";
+import { Link, NavLink } from "react-router-dom";
+import {
+  AppShell,
+  Container,
+  Group,
+  Burger,
+  Text,
+  Button,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import classes from "./style.module.css";
@@ -8,7 +14,8 @@ import classes from "./style.module.css";
 const links = [
   { link: "/", label: "Home" },
   { link: "/about", label: "About" },
-  { link: "/admin", label: "Dashboard" },
+  { link: "/admin/book", label: "Book" },
+  { link: "/admin/category", label: "Category" },
 ];
 
 export function Header() {
@@ -38,6 +45,16 @@ export function Header() {
               {item.label}
             </NavLink>
           ))}
+        </Group>
+
+        <Group>
+          <Button component={Link} to="/auth" variant="default">
+            Log in
+          </Button>
+
+          <Button component={Link} to="/auth/register">
+            Register
+          </Button>
         </Group>
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
