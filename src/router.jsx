@@ -19,6 +19,9 @@ import PageAdminBookCreate from "./pages/admin/book/create";
 import PageAdminBookEdit from "./pages/admin/book/edit";
 import PageAdminBookDetail from "./pages/admin/book/detail";
 
+// Not Found Page
+import { PageNotFound } from "./pages/not-found";
+
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -69,5 +72,9 @@ export const routes = createBrowserRouter([
         element: <PageAdminBookDetail />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
   },
 ]);
