@@ -1,12 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 
-// Layout
+// Layouts
 import { ClientLayout } from "./modules/layouts/client-layout";
+import { AuthLayout } from "./modules/layouts/auth-layout";
 import { AdminLayout } from "./modules/layouts/admin-layout";
 
 // Client Pages
 import { HomePage } from "./pages/client/home";
 import PageBookDetail from "./pages/client/book-detail";
+
+// Auth Pages
+import { PageLogin } from "./pages/auth/login";
+import { PageRegister } from "./pages/auth/register";
 
 // Admin Book Pages
 import PageAdminBookList from "./pages/admin/book/list";
@@ -26,6 +31,20 @@ export const routes = createBrowserRouter([
       {
         path: "book/:id",
         element: <PageBookDetail />,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        index: true,
+        element: <PageLogin />,
+      },
+      {
+        path: "register",
+        element: <PageRegister />,
       },
     ],
   },
