@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button, Flex, Table, Title, Badge, ActionIcon } from "@mantine/core";
 import { IconPlus, IconPencil, IconEye, IconTrash } from "@tabler/icons-react";
 
-export default function PageBookList() {
+export default function PageAdminBookList() {
   const BOOK_DATA = [
     {
       id: 1,

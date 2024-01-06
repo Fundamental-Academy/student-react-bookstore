@@ -4,14 +4,15 @@ import { createBrowserRouter } from "react-router-dom";
 import { ClientLayout } from "./modules/layouts/client-layout";
 import { AdminLayout } from "./modules/layouts/admin-layout";
 
-// Home Page
-import { HomePage } from "./pages/home";
+// Client Pages
+import { HomePage } from "./pages/client/home";
+import PageBookDetail from "./pages/client/book-detail";
 
-// Book Pages
-import PageBookList from "./pages/book/list";
-import PageBookCreate from "./pages/book/create";
-import PageBookEdit from "./pages/book/edit";
-import PageBookDetail from "./pages/book/detail";
+// Admin Book Pages
+import PageAdminBookList from "./pages/admin/book/list";
+import PageAdminBookCreate from "./pages/admin/book/create";
+import PageAdminBookEdit from "./pages/admin/book/edit";
+import PageAdminBookDetail from "./pages/admin/book/detail";
 
 export const routes = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const routes = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
+      {
+        path: "book/:id",
+        element: <PageBookDetail />,
+      },
     ],
   },
   {
@@ -30,19 +35,19 @@ export const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PageBookList />,
+        element: <PageAdminBookList />,
       },
       {
         path: "create",
-        element: <PageBookCreate />,
+        element: <PageAdminBookCreate />,
       },
       {
         path: ":id/edit",
-        element: <PageBookEdit />,
+        element: <PageAdminBookEdit />,
       },
       {
         path: ":id/detail",
-        element: <PageBookDetail />,
+        element: <PageAdminBookDetail />,
       },
     ],
   },

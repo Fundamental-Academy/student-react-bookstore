@@ -1,6 +1,6 @@
 import { Box, Flex, Chip } from "@mantine/core";
-import { Search } from "../modules/base/components/search";
-import { BookCard } from "../modules/base/components/card";
+import { Search } from "../../modules/base/components/search";
+import { BookCard } from "../../modules/base/components/card";
 
 export function HomePage() {
   return (

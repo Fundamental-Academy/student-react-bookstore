@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button, Flex, Title, Image, Text, Badge, Group } from "@mantine/core";
 import { IconArrowBack } from "@tabler/icons-react";
 
-export default function PageBookDetail() {
+export default function PageAdminBookDetail() {
   return (
     <>
       <Flex

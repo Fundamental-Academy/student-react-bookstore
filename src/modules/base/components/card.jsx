@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 
 export function BookCard() {
@@ -27,7 +28,14 @@ export function BookCard() {
         with tours and activities on and around the fjords of Norway
       </Text>
 
-      <Button color="blue" fullWidth mt="md" radius="md">
+      <Button
+        component={Link}
+        to="/book/1"
+        color="blue"
+        fullWidth
+        mt="md"
+        radius="md"
+      >
         Detail
       </Button>
     </Card>

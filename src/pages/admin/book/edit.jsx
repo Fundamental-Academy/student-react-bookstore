@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import { IconArrowBack } from "@tabler/icons-react";
 
-export default function PageBookCreate() {
+export default function PageAdminBookEdit() {
   const [bookImage, setBookImage] = useState(
     "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-9.png"
   );
