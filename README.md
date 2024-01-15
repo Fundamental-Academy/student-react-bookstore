@@ -1,8 +1,35 @@
-# React + Vite
+# Fundamental FE Mini Class - Student Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Clone this Repository
 
-Currently, two official plugins are available:
+Using HTTPS:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+git clone https://github.com/Fundamental-Academy/student-react-bookstore.git
+```
+
+Using SSH:
+
+```sh
+git@github.com:Fundamental-Academy/student-react-bookstore.git
+```
+
+Or you can download the ZIP file
+
+## 2. Install the dependencies
+
+Open student-react-bookstore folder and run this command:
+
+```bash
+npm install
+```
+
+## 3. Run the Project
+
+```sh
+npm run dev
+```
+
+If you facing any trouble in cloning this Template, please contact the Fundamental Instructor or Class Manager.
+
+Happy Learning 🚀
