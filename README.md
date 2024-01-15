@@ -11,14 +11,14 @@ git clone https://github.com/Fundamental-Academy/student-react-bookstore.git
 Using SSH:
 
 ```sh
-git@github.com:Fundamental-Academy/student-react-bookstore.git
+git clone git@github.com:Fundamental-Academy/student-react-bookstore.git
 ```
 
 Or you can download the ZIP file
 
 ## 2. Install the dependencies
 
-Open student-react-bookstore folder and run this command:
+Open `student-react-bookstore` folder and run this command:
 
 ```bash
 npm install
